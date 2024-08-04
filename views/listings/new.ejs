@@ -1,0 +1,97 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+  <br /><br />
+  <h3>Add Your Listing</h3>
+  <br />
+  <div class="row">
+    <div class="col-8 offset-2">
+      <form
+        action="/listings"
+        method="post"
+        class="needs-validation"
+        novalidate
+        enctype="multipart/form-data"
+      >
+        <div>
+          <label for="title" class="form-label">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="form-control"
+            required
+          />
+
+          <div class="valid-feedback">Title Looks good!</div>
+          <div class="invalid-feedback">Please provide a valid Title.</div>
+        </div>
+
+        <div>
+          <label class="form-label" for="description">Description:</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            required
+            class="form-control"
+          />
+          <div class="invalid-feedback">
+            Please provide a valid Description.
+          </div>
+          <div class="valid-feedback">Description Looks good!</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <label for="price" class="form-label">Price:</label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">Please provide a valid price.</div>
+          </div>
+
+          <div class="col-md-8">
+            <label for="country" class="form-label">Country:</label>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">Please provide a valid country.</div>
+          </div>
+        </div>
+
+        <div>
+          <label for="location" class="form-label">Location:</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please provide a valid city.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload Listing Image</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            class="form-control"
+            required
+          />
+        </div>
+        <button class="btn btn-dark">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>

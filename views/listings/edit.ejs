@@ -1,0 +1,88 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+  <h3>Edit yor listing</h3>
+  <form
+    action="/listings/<%= oldListing._id %>?_method=PUT"
+    method="POST"
+    class="needs-validation"
+    novalidate
+    enctype="multipart/form-data"
+  >
+    <div class="row mt-3">
+      <div class="col-8 offset-2">
+        <div>
+          <label for="title" class="form-label">Title:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            value="<%= oldListing.title %>"
+            required
+          />
+        </div>
+        <div>
+          <label for="description" class="form-label">Description:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            name="description"
+            required
+            value="<%= oldListing.description %>"
+          />
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="price" class="form-label">Price:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="price"
+              name="price"
+              required
+              value="<%= oldListing.price %>"
+            />
+          </div>
+          <div class="col-md-8">
+            <label for="country" class="form-label">Country:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="country"
+              name="country"
+              required
+              value="<%= oldListing.country %>"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="location" class="form-label">Location:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            name="location"
+            required
+            value="<%= oldListing.location %>"
+          />
+        </div>
+        <div class="mb-3">
+          <h6>Original listing image</h6> 
+          <img src="<%= originalImageUrl %>" alt="">
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload New Listing Image :</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            class="form-control"
+          />
+        </div>
+        <button class="btn btn-dark mt-3">Submit</button>
+      </div>
+    </div>
+  </form>
+</body>
