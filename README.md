@@ -6,8 +6,6 @@ WanderLust is a web application inspired by Airbnb, designed to help users list 
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
@@ -30,13 +28,6 @@ WanderLust is a web application inspired by Airbnb, designed to help users list 
 - Image Upload: Cloud storage
 - Map Integration: Geocoding and map markers
 
-## Installation
-
-To get a local copy up and running, follow these steps:
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/yourusername/wanderlust.git
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
