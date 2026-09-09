@@ -25,20 +25,17 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
-const localDbUrl = "mongodb://127.0.0.1:27017/wanderlust";
-const dbUrl = (process.env.LOCAL_DB === "true")
-  ? localDbUrl
-  : (process.env.ATLASDB_URL || process.env.DB_URL || localDbUrl);
+const dbUrl = process.env.ATLASDB_URL || process.env.DB_URL || "mongodb://127.0.0.1:27017/wanderlust";
 
 // use ejs-locals for all ejs templates:
 app.engine('ejs', ejsMate);
 
 async function main() {
-  await mongoose.connect(dbUrl);
-  console.log("Connected to database:", dbUrl.includes("127.0.0.1") ? "Local MongoDB" : "MongoDB Atlas");
+  await mongoose.connect(dbUrl, { dbName: "wanderlust" });
+  console.log("Connected to database successfully");
 }
 
-main().catch((err) => console.log("Database connection error:", err));
+main().catch((err) => console.error("Database connection error:", err));
 
 app.get("/", (req, res) => {
   res.redirect("/listings");
@@ -47,6 +44,7 @@ app.get("/", (req, res) => {
 // session
 const store = MongoStore.create({
   mongoUrl: dbUrl,
+  dbName: "wanderlust",
   crypto: {
     secret: process.env.SECRET || "wanderlustsecretsessionkey",
   },
