@@ -1,126 +1,157 @@
 <% layout("/layouts/boilerplate") %>
+<% const isAct = (cat) => (activeCategory || '').toLowerCase() === cat.toLowerCase(); %>
 <body>
-    <!-- <h3>All Listings</h3> -->
-
-    <style>
-        #filters {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .filter {
-            text-align: center;
-            margin-right: 2rem;
-            margin-top: 1.5rem;
-            opacity: 0.7;
-        }
-        .filter:hover {
-            opacity: 1;
-            cursor: pointer;
-        }
-        .filter p {
-            font-size: 0.8rem;
-        }
-
-        .tax-info{
-            /* visibility: hidden; */
-            display: none;
-        }
-
-        .tax-switch{
-            border: 1px solid black;
-            border-radius: 1rem;
-            height: 3.5rem;
-            padding: 1rem;
-            margin-left: 2rem;
-            display: flex;
-            align-items: center;
-        }
-    </style>
-
     <div id="filters">
-        <div class="filter">
-           <div> <i class="fa-solid fa-fire"></i></div>
-           <p>Trending</p>
+        <div class="filters-scroll-wrapper">
+            <a href="/listings<%= searchQuery ? '?q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= !activeCategory || isAct('all') ? 'active' : '' %>">
+                <i class="fa-solid fa-border-all"></i>
+                <p>All</p>
+            </a>
+            <a href="/listings?category=Trending<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Trending') ? 'active' : '' %>">
+                <i class="fa-solid fa-fire"></i>
+                <p>Trending</p>
+            </a>
+            <a href="/listings?category=Rooms<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Rooms') ? 'active' : '' %>">
+                <i class="fa-solid fa-bed"></i>
+                <p>Rooms</p>
+            </a>
+            <a href="/listings?category=Iconic Cities<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Iconic Cities') ? 'active' : '' %>">
+                <i class="fa-solid fa-mountain-city"></i>
+                <p>Iconic Cities</p>
+            </a>
+            <a href="/listings?category=Mountains<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Mountains') ? 'active' : '' %>">
+                <i class="fa-solid fa-mountain"></i>
+                <p>Mountains</p>
+            </a>
+            <a href="/listings?category=Castles<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Castles') ? 'active' : '' %>">
+                <i class="fa-brands fa-fort-awesome"></i>
+                <p>Castles</p>
+            </a>
+            <a href="/listings?category=Amazing Pools<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Amazing Pools') ? 'active' : '' %>">
+                <i class="fa-solid fa-person-swimming"></i>
+                <p>Amazing Pools</p>
+            </a>
+            <a href="/listings?category=Camping<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Camping') ? 'active' : '' %>">
+                <i class="fa-solid fa-campground"></i>
+                <p>Camping</p>
+            </a>
+            <a href="/listings?category=Farms<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Farms') ? 'active' : '' %>">
+                <i class="fa-solid fa-tractor"></i>
+                <p>Farms</p>
+            </a>
+            <a href="/listings?category=Arctic<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Arctic') ? 'active' : '' %>">
+                <i class="fa-regular fa-snowflake"></i>
+                <p>Arctic</p>
+            </a>
+            <a href="/listings?category=Beach<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Beach') ? 'active' : '' %>">
+                <i class="fa-solid fa-umbrella-beach"></i>
+                <p>Beach</p>
+            </a>
+            <a href="/listings?category=Boats<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Boats') ? 'active' : '' %>">
+                <i class="fa-solid fa-ship"></i>
+                <p>Boats</p>
+            </a>
         </div>
-        <div class="filter">
-           <div> <i class="fa-solid fa-bed"></i></div>
-           <p>Rooms</p>
-        </div>
-        <div class="filter">
-           <div> <i class="fa-solid fa-mountain-city"></i></div>
-           <p>Iconic Cities</p>
-        </div>
-        <div class="filter">
-           <div> <i class="fa-solid fa-mountain"></i></div>
-           <p>Mountains</p>
-        </div>
-        <div class="filter">
-           <div><i class="fa-brands fa-fort-awesome"></i></div>
-           <p>Castles</p>
-        </div>
-        <div class="filter">
-           <div><i class="fa-solid fa-person-swimming"></i></div>
-           <p>Amazing Pools</p>
-        </div>
-        <div class="filter">
-           <div><i class="fa-solid fa-campground"></i></div>
-           <p>Camping</p>
-        </div>
-        <div class="filter">
-           <div><i class="fa-solid fa-tractor"></i></div>
-           <p>Farms</p>
-        </div>
-        <div class="filter">
-           <div><i class="fa-regular fa-snowflake"></i></div>
-           <p>Arctic</p>
-        </div>
-        <div class="filter">
-            <div> <i class="fa-solid fa-fire"></i></div>
-            <p>Trending</p>
-         </div>
-         <div class="filter">
-            <div> <i class="fa-solid fa-bed"></i></div>
-            <p>Rooms</p>
-         </div>
-         
-        <div class="tax-switch mt-3">
-            <div class="form-check-reverse form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+
+        <div class="tax-switch">
+            <div class="form-check form-switch m-0 d-flex align-items-center">
+                <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
-              </div>
+            </div>
         </div>
     </div>
 
-    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">   
-         <% for (let listing of allListings){ %>
-            <a href="/listings/<%= listing._id %>" class="listing-link">
-            <div class="card col listing-card" >
-                <img src="<%= listing.image.url %>" class="card-img-top" alt="...">
-                <div class="card-img-overlay">WanderLust</div>
-                    <div class="card-body">
-                        <p class="card-text"><b>
-                            <%= listing.title %> </b><br>
-                            &#8377;<%= listing.price.toLocaleString("en-IN") %>/night &nbsp;&nbsp; <i class="tax-info">+ 18% GST</i>
-                        </p>
-                    </div>
-            </div>
-            </a>
-          <%  } %>
+    <% if (searchQuery || activeCategory) { %>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="text-muted mb-0">
+                <% if (searchQuery && activeCategory) { %>
+                    Results for "<%= searchQuery %>" in <%= activeCategory %>
+                <% } else if (searchQuery) { %>
+                    Results for "<%= searchQuery %>"
+                <% } else if (activeCategory) { %>
+                    Category: <%= activeCategory %>
+                <% } %>
+                (<%= allListings.length %> found)
+            </h5>
+            <a href="/listings" class="btn btn-sm btn-outline-secondary">Clear all filters</a>
         </div>
+    <% } %>
 
-        <script>
-            let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-            taxSwitch.addEventListener("click", ()=> {
-                let taxInfo = document.getElementsByClassName("tax-info");
-                for(info of taxInfo){
-                    if(info.style.display != "inline"){
-                    info.style.display = "inline";
-                    }else{
-                        info.style.display = "none";
+    <% if(allListings.length === 0) { %>
+        <div class="empty-state">
+            <i class="fa-solid fa-magnifying-glass-location"></i>
+            <h4>No listings found</h4>
+            <p class="text-muted">Try choosing another category or clearing your search filters.</p>
+            <a href="/listings" class="btn btn-dark mt-2">Explore All Listings</a>
+        </div>
+    <% } else { %>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mt-1 g-4">   
+            <% for (let listing of allListings){ %>
+                <a href="/listings/<%= listing._id %>" class="listing-link">
+                    <div class="card col listing-card h-100">
+                        <img 
+                            src="<%= listing.image && listing.image.url ? listing.image.url : 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=60' %>" 
+                            class="card-img-top" 
+                            alt="<%= listing.title %>"
+                            loading="lazy"
+                        >
+                        <div class="card-img-overlay">WanderLust</div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b class="d-block text-truncate"><%= listing.title %></b>
+                                <span class="text-muted"><%= listing.location %>, <%= listing.country %></span><br>
+                                <span class="price-amount" data-base-price="<%= listing.price || 0 %>">
+                                    &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : '0' %>
+                                </span> / night 
+                                <i class="tax-info">&nbsp;+18% GST</i>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+    <% } %>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const taxSwitch = document.getElementById("flexSwitchCheckDefault");
+            const taxInfo = document.getElementsByClassName("tax-info");
+            const priceAmounts = document.getElementsByClassName("price-amount");
+
+            function updateTaxes(show) {
+                for (let info of taxInfo) {
+                    info.style.display = show ? "inline" : "none";
+                }
+                for (let el of priceAmounts) {
+                    const base = Number(el.getAttribute("data-base-price")) || 0;
+                    if (show) {
+                        const withTax = Math.round(base * 1.18);
+                        el.innerHTML = "&#8377;" + withTax.toLocaleString("en-IN");
+                    } else {
+                        el.innerHTML = "&#8377;" + base.toLocaleString("en-IN");
                     }
                 }
-            } );
-        </script>
-</body>
+            }
 
+            if (taxSwitch) {
+                // Restore preference across page transitions
+                const savedPref = localStorage.getItem("wanderlust_show_taxes") === "true";
+                if (savedPref) {
+                    taxSwitch.checked = true;
+                    updateTaxes(true);
+                }
+
+                taxSwitch.addEventListener("change", () => {
+                    localStorage.setItem("wanderlust_show_taxes", taxSwitch.checked);
+                    updateTaxes(taxSwitch.checked);
+                });
+            }
+
+            // Scroll active category into view horizontally if needed (especially on mobile)
+            const activeFilter = document.querySelector(".filter.active");
+            if (activeFilter && activeFilter.parentElement) {
+                activeFilter.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+            }
+        });
+    </script>
+</body>

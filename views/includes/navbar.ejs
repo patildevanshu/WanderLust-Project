@@ -1,27 +1,12 @@
-<style>
-  .btn-search {
-    background-color: #fe424d;
-    display: flex;
-    color: #fff;
-    align-items: center;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
-  }
-  .fa-magnifying-glass {
-    display: inline !important;
-    margin-right: 0.8rem;
-  }
-  .search-input{
-    border-radius: 25px ;
-    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
-  }
-</style>
-
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
+<nav class="navbar navbar-expand-md bg-white border-bottom sticky-top shadow-sm">
+  <div class="container-fluid px-md-4">
+    <a class="navbar-brand d-flex align-items-center" href="/listings">
+      <i class="fa-regular fa-compass me-2"></i>
+      <span class="fw-bold fs-4 text-danger d-none d-sm-inline">WanderLust</span>
+    </a>
+    
     <button
-      class="navbar-toggler"
+      class="navbar-toggler border-0"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNavAltMarkup"
@@ -31,32 +16,37 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-
-        <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
+      <div class="navbar-nav me-auto">
+        <a class="nav-link px-2" href="/listings">Explore</a>
       </div>
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
+      
+      <div class="navbar-nav mx-auto my-2 my-md-0 w-100 justify-content-center" style="max-width: 480px;">
+        <form action="/listings" method="GET" class="d-flex w-100" role="search">
           <input
             class="form-control me-2 search-input"
             type="search"
-            placeholder="Search Destinations"
+            name="q"
+            placeholder="Search by city, country, or title..."
             aria-label="Search"
+            value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>"
           />
-          <button class="btn btn-search btn-outline-success" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>  Search
+          <button class="btn btn-search text-nowrap" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
           </button>
         </form>
       </div>
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">WanderLust your home</a>
+      
+      <div class="navbar-nav ms-auto align-items-md-center">
+        <a class="nav-link px-2" href="/listings/new">WanderLust your home</a>
         <% if(!locals.currUser) { %>
-        <a class="nav-link" href="/signup"><b>SignUP</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
-        <% } %> <% if(locals.currUser) { %>
-        <a class="nav-link" href="/logout"><b>Logout</b></a>
+          <a class="nav-link px-2" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link px-2" href="/login"><b>Log In</b></a>
+        <% } %> 
+        <% if(locals.currUser) { %>
+          <span class="navbar-text px-2 text-muted d-none d-lg-inline">Hi, <%= currUser.username %></span>
+          <a class="nav-link px-2" href="/logout"><b>Log Out</b></a>
         <% } %>
       </div>
     </div>

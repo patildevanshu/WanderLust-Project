@@ -1,11 +1,10 @@
 <% layout("/layouts/boilerplate") %>
 
 <body>
-  <br /><br />
-  <h3>Add Your Listing</h3>
-  <br />
-  <div class="row">
-    <div class="col-8 offset-2">
+  <div class="row mt-3 mb-5">
+    <div class="col-12 col-md-8 offset-md-2">
+      <h3 class="mb-4">Add Your Listing</h3>
+
       <form
         action="/listings"
         method="post"
@@ -13,75 +12,96 @@
         novalidate
         enctype="multipart/form-data"
       >
-        <div>
+        <div class="mb-3">
           <label for="title" class="form-label">Title:</label>
           <input
             type="text"
             id="title"
             name="title"
             class="form-control"
+            placeholder="Add a catchy title"
             required
           />
-
-          <div class="valid-feedback">Title Looks good!</div>
-          <div class="invalid-feedback">Please provide a valid Title.</div>
+          <div class="valid-feedback">Title looks good!</div>
+          <div class="invalid-feedback">Please provide a valid title.</div>
         </div>
 
-        <div>
+        <div class="mb-3">
           <label class="form-label" for="description">Description:</label>
-          <input
-            type="text"
+          <textarea
             id="description"
             name="description"
             required
+            rows="4"
             class="form-control"
-          />
-          <div class="invalid-feedback">
-            Please provide a valid Description.
-          </div>
-          <div class="valid-feedback">Description Looks good!</div>
+            placeholder="Describe your property..."
+          ></textarea>
+          <div class="invalid-feedback">Please provide a valid description.</div>
         </div>
 
         <div class="row">
-          <div class="col-md-4">
-            <label for="price" class="form-label">Price:</label>
+          <div class="col-12 col-md-4 mb-3">
+            <label for="price" class="form-label">Price (&#8377;):</label>
             <input
               type="number"
               id="price"
               name="price"
               class="form-control"
+              placeholder="1200"
+              min="1"
               required
             />
             <div class="invalid-feedback">Please provide a valid price.</div>
           </div>
 
-          <div class="col-md-8">
+          <div class="col-12 col-md-4 mb-3">
+            <label for="category" class="form-label">Category:</label>
+            <select id="category" name="category" class="form-select" required>
+              <option value="Trending" selected>Trending</option>
+              <option value="Rooms">Rooms</option>
+              <option value="Iconic Cities">Iconic Cities</option>
+              <option value="Mountains">Mountains</option>
+              <option value="Castles">Castles</option>
+              <option value="Amazing Pools">Amazing Pools</option>
+              <option value="Camping">Camping</option>
+              <option value="Farms">Farms</option>
+              <option value="Arctic">Arctic</option>
+              <option value="Beach">Beach</option>
+              <option value="Boats">Boats</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="invalid-feedback">Please select a category.</div>
+          </div>
+
+          <div class="col-12 col-md-4 mb-3">
             <label for="country" class="form-label">Country:</label>
             <input
               type="text"
               id="country"
               name="country"
               class="form-control"
+              placeholder="India"
               required
             />
             <div class="invalid-feedback">Please provide a valid country.</div>
           </div>
         </div>
 
-        <div>
-          <label for="location" class="form-label">Location:</label>
+        <div class="mb-3">
+          <label for="location" class="form-label">Location (City / State):</label>
           <input
             type="text"
             id="location"
             name="location"
             class="form-control"
+            placeholder="Jaipur, Rajasthan"
             required
           />
-          <div class="invalid-feedback">Please provide a valid city.</div>
+          <div class="invalid-feedback">Please provide a valid city/location.</div>
         </div>
 
-        <div class="mb-3">
-          <label for="image" class="form-label">Upload Listing Image</label>
+        <div class="mb-4">
+          <label for="image" class="form-label">Upload Listing Image:</label>
           <input
             type="file"
             id="image"
@@ -89,8 +109,10 @@
             class="form-control"
             required
           />
+          <div class="invalid-feedback">Please upload an image.</div>
         </div>
-        <button class="btn btn-dark">Submit</button>
+
+        <button class="btn btn-dark w-100 py-2">Create Listing</button>
       </form>
     </div>
   </div>

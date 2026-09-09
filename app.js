@@ -24,23 +24,18 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
-const dbUrl = process.env.ATLASDB_URL;
-
-
+const localDbUrl = "mongodb://127.0.0.1:27017/wanderlust";
+const dbUrl = process.env.DB_URL || (process.env.USE_ATLAS === "true" ? process.env.ATLASDB_URL : localDbUrl);
 
 // use ejs-locals for all ejs templates:
 app.engine('ejs', ejsMate);
 
-
-main()
-  .then(() => {
-    console.log("connected to db");
-  })
-  .catch((err) => console.log(err));
-
 async function main() {
   await mongoose.connect(dbUrl);
+  console.log("Connected to database:", dbUrl.includes("127.0.0.1") ? "Local MongoDB" : "MongoDB Atlas");
 }
+
+main().catch((err) => console.log("Database connection error:", err));
 
 app.get("/", (req, res) => {
   res.redirect("/listings");
@@ -48,15 +43,15 @@ app.get("/", (req, res) => {
 
 // session
 const store = MongoStore.create({
-  mongoUrl : dbUrl ,
+  mongoUrl: dbUrl,
   crypto: {
-    secret: process.env.SECRET
+    secret: process.env.SECRET || "wanderlustsecret",
   },
-  touchAfter : 24*3600 ,
+  touchAfter: 24 * 3600,
 });
 
-store.on('error', () =>{
-  console.error('Failed to connect to MongoDB:' , err);
+store.on('error', (err) => {
+  console.error('Session store error:', err);
 });
 
 

@@ -14,10 +14,13 @@ WanderLust is a web application inspired by Airbnb, designed to help users list 
 
 - User authentication and authorization
 - Create, read, update, and delete listings
-- Add reviews and ratings for listings
-- Image upload and display
-- Geolocation and map integration
-- Responsive design (coming soon for mobile)
+- Destination and title keyword search
+- Category-based accommodation filtering
+- Add reviews and ratings for listings with author-only deletion
+- Image upload and display with Cloudinary
+- Geolocation and interactive Mapbox map integration
+- Dynamic 18% GST calculation toggle
+- Fully responsive design optimized for mobile phones, tablets, and desktops
 
 ## Technologies Used
 
