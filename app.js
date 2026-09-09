@@ -33,12 +33,71 @@ app.engine('ejs', ejsMate);
 async function main() {
   await mongoose.connect(dbUrl, { dbName: "wanderlust" });
   console.log("Connected to database successfully");
+  await autoSeedIfEmpty();
+}
+
+async function autoSeedIfEmpty() {
+  try {
+    const Listing = require("./models/listing.js");
+    const count = await Listing.countDocuments();
+    if (count === 0) {
+      console.log("Database has 0 listings. Auto-seeding initial dataset from init/data.js...");
+      const initData = require("./init/data.js");
+      let hostUser = await User.findOne();
+      if (!hostUser) {
+        hostUser = new User({
+          username: "devanshu_admin",
+          email: "support@devanshupatil.tech",
+        });
+        await User.register(hostUser, process.env.SECRET || "Admin@12345");
+      }
+      const listingsWithOwner = initData.data.map((obj) => ({
+        ...obj,
+        owner: hostUser._id,
+      }));
+      await Listing.insertMany(listingsWithOwner);
+      console.log(`Auto-seeded ${listingsWithOwner.length} listings successfully.`);
+    }
+  } catch (err) {
+    console.error("Auto-seed error:", err);
+  }
 }
 
 main().catch((err) => console.error("Database connection error:", err));
 
 app.get("/", (req, res) => {
   res.redirect("/listings");
+});
+
+app.get("/seed-db", async (req, res) => {
+  try {
+    const Listing = require("./models/listing.js");
+    const initData = require("./init/data.js");
+    let hostUser = await User.findOne();
+    if (!hostUser) {
+      hostUser = new User({
+        username: "devanshu_admin",
+        email: "support@devanshupatil.tech",
+      });
+      await User.register(hostUser, process.env.SECRET || "Admin@12345");
+    }
+    if (req.query.force === "true") {
+      await Listing.deleteMany({});
+    }
+    const currentCount = await Listing.countDocuments();
+    if (currentCount === 0) {
+      const listingsWithOwner = initData.data.map((obj) => ({
+        ...obj,
+        owner: hostUser._id,
+      }));
+      await Listing.insertMany(listingsWithOwner);
+      return res.send(`Seeded ${listingsWithOwner.length} listings into database! <a href="/listings">View Listings</a>`);
+    } else {
+      return res.send(`Database already contains ${currentCount} listings. <a href="/listings">View Listings</a> or <a href="/seed-db?force=true">Force Re-seed</a>`);
+    }
+  } catch (err) {
+    res.status(500).send("Seed error: " + err.message);
+  }
 });
 
 // session
