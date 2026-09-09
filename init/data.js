@@ -549,6 +549,576 @@ const sampleListings = [
         9.9281
       ]
     }
+  },
+  {
+    "title": "Château de Chambord Royal Estate",
+    "description": "Step back into the Renaissance with an unforgettable stay near the Loire Valley. Features grand stone halls, vaulted ceilings, and manicured French gardens.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1585543805890-6051f7829f98?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 12500,
+    "location": "Amboise",
+    "country": "France",
+    "category": "Castles",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        0.9831,
+        47.4132
+      ]
+    }
+  },
+  {
+    "title": "Highland Stone Keep & Watchtower",
+    "description": "Perched above Loch Ness, this restored 14th-century fortress offers panoramic loch views, wood-burning hearths, and centuries of Scottish history.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 14000,
+    "location": "Inverness",
+    "country": "United Kingdom",
+    "category": "Castles",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -4.2247,
+        57.4778
+      ]
+    }
+  },
+  {
+    "title": "Bavarian Fairy-Tale Citadel",
+    "description": "Nestled in the Alpine foothills, this Gothic castle boasts spiral stone staircases, antique chandeliers, and misty morning views of pristine lakes.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 16500,
+    "location": "Füssen",
+    "country": "Germany",
+    "category": "Castles",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        10.7011,
+        47.5696
+      ]
+    }
+  },
+  {
+    "title": "Tuscan Olive Grove Homestead",
+    "description": "Immerse yourself in Chianti wine country. Wake up to cypress trees, olive harvesting, wine cellar tastings, and freshly pressed extra virgin olive oil.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 4200,
+    "location": "Siena",
+    "country": "Italy",
+    "category": "Farms",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        11.3308,
+        43.3188
+      ]
+    }
+  },
+  {
+    "title": "Provence Lavender Farmhouse",
+    "description": "Surrounded by purple fields of blooming lavender, this 18th-century stone farmhouse offers quiet country trails, local goat cheeses, and summer sunsets.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 3800,
+    "location": "Valensole",
+    "country": "France",
+    "category": "Farms",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        5.9844,
+        43.8361
+      ]
+    }
+  },
+  {
+    "title": "Organic Dairy Homestead & Orchard",
+    "description": "Experience authentic rural life in Vermont. Feed calves, pick organic apples, and enjoy artisan cheeses alongside cozy wooden interiors.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 2600,
+    "location": "Woodstock",
+    "country": "United States",
+    "category": "Farms",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -72.5187,
+        43.6242
+      ]
+    }
+  },
+  {
+    "title": "Aurora Glass Dome Igloo",
+    "description": "Sleep beneath the dancing Northern Lights in a heated thermal glass igloo surrounded by snow-covered pine forests and reindeer trails.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 9500,
+    "location": "Rovaniemi",
+    "country": "Finland",
+    "category": "Arctic",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        25.7294,
+        66.5039
+      ]
+    }
+  },
+  {
+    "title": "Fjord Glacier Eco-Cabin",
+    "description": "Modern Scandinavian cabin overlooking dramatic Norwegian fjords. Features an outdoor geothermal hot tub, floor-to-ceiling windows, and whale watching.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 8200,
+    "location": "Tromsø",
+    "country": "Norway",
+    "category": "Arctic",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        18.9553,
+        69.6492
+      ]
+    }
+  },
+  {
+    "title": "Glacier Ridge Icefield Cabin",
+    "description": "Situated near Vatnajökull glacier, this secluded cabin offers black sand surroundings, crystalline glacier lagoons, and geothermal hot springs.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 7600,
+    "location": "Reykjavik",
+    "country": "Iceland",
+    "category": "Arctic",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -21.9426,
+        64.1466
+      ]
+    }
+  },
+  {
+    "title": "Traditional Kyoto Machiya Tatami Room",
+    "description": "Authentic cedar wood townhouse room in historic Gion. Features Shoji paper sliding doors, rush tatami mats, and morning matcha tea ceremonies.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 2900,
+    "location": "Kyoto",
+    "country": "Japan",
+    "category": "Rooms",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        135.7681,
+        35.0116
+      ]
+    }
+  },
+  {
+    "title": "Heritage Havelian Bedroom in Pink City",
+    "description": "Spacious handcrafted bedroom inside an authentic royal haveli. Decorated with Rajasthani jharokhas, antique brass lanterns, and courtyard fountains.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 2200,
+    "location": "Jaipur",
+    "country": "India",
+    "category": "Rooms",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        75.7873,
+        26.9124
+      ]
+    }
+  },
+  {
+    "title": "Montmartre Artist Sunlit Studio Room",
+    "description": "Charming bohemian guest room on cobblestone streets near Sacré-Cœur. Packed with vintage books, French easel, and views over Parisian rooftops.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 3100,
+    "location": "Paris",
+    "country": "France",
+    "category": "Rooms",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        2.3431,
+        48.8867
+      ]
+    }
+  },
+  {
+    "title": "Cappadocia Cliffside Cave Suite",
+    "description": "Carved straight into volcanic tuff rock formations, this luxury cave suite offers private sunrise terrace views of hundreds of hot air balloons.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 6800,
+    "location": "Göreme",
+    "country": "Turkey",
+    "category": "Trending",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        34.8289,
+        38.6431
+      ]
+    }
+  },
+  {
+    "title": "Futuristic Glass Biosphere Pod",
+    "description": "Architectural marvel nestled deep in the desert sands. Powered by 100% solar energy with zero light pollution and panoramic celestial skylights.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 7200,
+    "location": "Wadi Rum",
+    "country": "Jordan",
+    "category": "Trending",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        35.4342,
+        29.5763
+      ]
+    }
+  },
+  {
+    "title": "Minimalist Bamboo Eco-Sanctuary",
+    "description": "Award-winning open-air bamboo cathedral villa nestled above the Ayung river valley with organic plunge pool and canopy daybeds.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 5500,
+    "location": "Ubud",
+    "country": "Indonesia",
+    "category": "Trending",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        115.2625,
+        -8.5069
+      ]
+    }
+  },
+  {
+    "title": "Matterhorn Peak Wooden Chalet",
+    "description": "Ski-in/ski-out Swiss alpine chalet featuring hand-hewn logs, crackling stone fireplace, private sauna, and front-row vistas of the Matterhorn.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1502784444187-359ac186c5bb?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 11000,
+    "location": "Zermatt",
+    "country": "Switzerland",
+    "category": "Mountains",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        7.7491,
+        45.9765
+      ]
+    }
+  },
+  {
+    "title": "Banff Alpine Forest Lodge",
+    "description": "Set in the Canadian Rockies surrounded by towering Douglas firs, turquoise glacial lakes, and sweeping mountain passes.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 6500,
+    "location": "Banff",
+    "country": "Canada",
+    "category": "Mountains",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -115.5708,
+        51.1784
+      ]
+    }
+  },
+  {
+    "title": "Himalayan Cedar Wood Haven",
+    "description": "Quiet mountain cottage overlooking snow-clad Pir Panjal peaks. Breathe crisp pine air, listen to mountain streams, and trek scenic trails.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 3400,
+    "location": "Manali",
+    "country": "India",
+    "category": "Mountains",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        77.1887,
+        32.2396
+      ]
+    }
+  },
+  {
+    "title": "Uluwatu Cliff Edge Infinity Villa",
+    "description": "Suspended 150 meters above the Indian Ocean, this designer estate features a 25-meter crystal infinity pool that seems to spill into the horizon.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 13500,
+    "location": "Bali",
+    "country": "Indonesia",
+    "category": "Amazing Pools",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        115.0884,
+        -8.8291
+      ]
+    }
+  },
+  {
+    "title": "Marrakech Riads with Emerald Pool",
+    "description": "Private Moroccan palace centered around an emerald-tiled plunge pool lined with banana palms, mosaic zellige, and rooftop daybeds.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 7900,
+    "location": "Marrakech",
+    "country": "Morocco",
+    "category": "Amazing Pools",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -7.9898,
+        31.6295
+      ]
+    }
+  },
+  {
+    "title": "Bora Bora Overwater Lagoon Pool Villa",
+    "description": "Indulge in a private overwater bungalow featuring glass-floor viewing panels and a cantilevered infinity pool dipping over calm turquoise waters.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 21000,
+    "location": "Bora Bora",
+    "country": "French Polynesia",
+    "category": "Amazing Pools",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -151.7415,
+        -16.5004
+      ]
+    }
+  },
+  {
+    "title": "Red Rocks Stargazer Geodesic Dome",
+    "description": "Off-grid luxury glamping dome equipped with plush king mattress, skylight viewing dome, propane stove, and red sandstone canyon views.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 3200,
+    "location": "Moab",
+    "country": "United States",
+    "category": "Camping",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -109.5498,
+        38.5733
+      ]
+    }
+  },
+  {
+    "title": "Serengeti Safari Canvas Suite",
+    "description": "Classic African safari canvas pavilion under acacia trees. Hear wildlife under starry savannah skies with campfire dinners and guided game drives.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 8900,
+    "location": "Serengeti",
+    "country": "Tanzania",
+    "category": "Camping",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        34.8333,
+        -2.3333
+      ]
+    }
+  },
+  {
+    "title": "Dal Lake Royal Carved Cedar Houseboat",
+    "description": "Handcrafted Kashmiri wooden houseboat floating gently on serene Dal Lake. Features fragrant walnut furniture, shikara rides, and Himalayan backdrop.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 4100,
+    "location": "Srinagar",
+    "country": "India",
+    "category": "Boats",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        74.8723,
+        34.0837
+      ]
+    }
+  },
+  {
+    "title": "Amsterdam Prinsengracht Canal Houseboat",
+    "description": "Sleek and newly renovated floating home right on the iconic canal belt. Watch boats cruise past your living room window and bike through Jordaan.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 5200,
+    "location": "Amsterdam",
+    "country": "Netherlands",
+    "category": "Boats",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        4.8852,
+        52.3702
+      ]
+    }
+  },
+  {
+    "title": "Santorini Sunset Caldera Villa",
+    "description": "Iconic whitewashed cliff villa in Oia with private outdoor Jacuzzi, cobalt blue doors, and unobstructed views of Aegean Sea sunsets.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 9800,
+    "location": "Santorini",
+    "country": "Greece",
+    "category": "Beach",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        25.3753,
+        36.4618
+      ]
+    }
+  },
+  {
+    "title": "Zanzibar White Sands Oceanfront Bungalow",
+    "description": "Step straight from your thatched veranda onto powder-soft white coral sand. Enjoy fresh seafood caught daily and crystal turquoise shallows.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 4600,
+    "location": "Zanzibar",
+    "country": "Tanzania",
+    "category": "Beach",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        39.2026,
+        -6.1659
+      ]
+    }
+  },
+  {
+    "title": "Goa Palolem Palm Beach Hut",
+    "description": "Breezy eco-friendly beach cottage nestled directly under coconut groves along the golden sands of Palolem Bay with gentle ocean waves.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 2800,
+    "location": "Goa",
+    "country": "India",
+    "category": "Beach",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        74.0232,
+        15.01
+      ]
+    }
+  },
+  {
+    "title": "Shinjuku Skyline High-Rise Suite",
+    "description": "Floor-to-ceiling panoramic views over neon-lit Tokyo from the 38th floor. Sleek Japanese minimalism, soaking tub, and high-speed transit downstairs.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 6100,
+    "location": "Tokyo",
+    "country": "Japan",
+    "category": "Iconic Cities",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        139.6917,
+        35.6895
+      ]
+    }
+  },
+  {
+    "title": "SoHo Designer Brickwork Loft",
+    "description": "Sun-drenched cast-iron building loft in downtown Manhattan with 14-foot ceilings, original exposed brick, vintage velvet sofas, and curated art.",
+    "image": {
+      "filename": "listingimage",
+      "url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=60"
+    },
+    "price": 8500,
+    "location": "New York City",
+    "country": "United States",
+    "category": "Iconic Cities",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -73.9996,
+        40.7233
+      ]
+    }
   }
 ];
 
