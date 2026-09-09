@@ -1,53 +1,59 @@
 <% layout("/layouts/boilerplate") %>
-<% const isAct = (cat) => (activeCategory || '').toLowerCase() === cat.toLowerCase(); %>
+<% 
+  const currentSearch = typeof searchQuery !== 'undefined' ? searchQuery : (locals.searchQuery || '');
+  const currentCategory = typeof activeCategory !== 'undefined' ? activeCategory : (locals.activeCategory || '');
+  const isAct = (cat) => currentCategory.toLowerCase() === cat.toLowerCase();
+  const searchParam = currentSearch ? '&q=' + encodeURIComponent(currentSearch) : '';
+  const searchOnlyParam = currentSearch ? '?q=' + encodeURIComponent(currentSearch) : '';
+%>
 <body>
     <div id="filters">
         <div class="filters-scroll-wrapper">
-            <a href="/listings<%= searchQuery ? '?q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= !activeCategory || isAct('all') ? 'active' : '' %>">
+            <a href="/listings<%= searchOnlyParam %>" class="filter <%= !currentCategory || isAct('all') ? 'active' : '' %>">
                 <i class="fa-solid fa-border-all"></i>
                 <p>All</p>
             </a>
-            <a href="/listings?category=Trending<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Trending') ? 'active' : '' %>">
+            <a href="/listings?category=Trending<%= searchParam %>" class="filter <%= isAct('Trending') ? 'active' : '' %>">
                 <i class="fa-solid fa-fire"></i>
                 <p>Trending</p>
             </a>
-            <a href="/listings?category=Rooms<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Rooms') ? 'active' : '' %>">
+            <a href="/listings?category=Rooms<%= searchParam %>" class="filter <%= isAct('Rooms') ? 'active' : '' %>">
                 <i class="fa-solid fa-bed"></i>
                 <p>Rooms</p>
             </a>
-            <a href="/listings?category=Iconic Cities<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Iconic Cities') ? 'active' : '' %>">
+            <a href="/listings?category=Iconic Cities<%= searchParam %>" class="filter <%= isAct('Iconic Cities') ? 'active' : '' %>">
                 <i class="fa-solid fa-mountain-city"></i>
                 <p>Iconic Cities</p>
             </a>
-            <a href="/listings?category=Mountains<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Mountains') ? 'active' : '' %>">
+            <a href="/listings?category=Mountains<%= searchParam %>" class="filter <%= isAct('Mountains') ? 'active' : '' %>">
                 <i class="fa-solid fa-mountain"></i>
                 <p>Mountains</p>
             </a>
-            <a href="/listings?category=Castles<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Castles') ? 'active' : '' %>">
+            <a href="/listings?category=Castles<%= searchParam %>" class="filter <%= isAct('Castles') ? 'active' : '' %>">
                 <i class="fa-brands fa-fort-awesome"></i>
                 <p>Castles</p>
             </a>
-            <a href="/listings?category=Amazing Pools<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Amazing Pools') ? 'active' : '' %>">
+            <a href="/listings?category=Amazing Pools<%= searchParam %>" class="filter <%= isAct('Amazing Pools') ? 'active' : '' %>">
                 <i class="fa-solid fa-person-swimming"></i>
                 <p>Amazing Pools</p>
             </a>
-            <a href="/listings?category=Camping<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Camping') ? 'active' : '' %>">
+            <a href="/listings?category=Camping<%= searchParam %>" class="filter <%= isAct('Camping') ? 'active' : '' %>">
                 <i class="fa-solid fa-campground"></i>
                 <p>Camping</p>
             </a>
-            <a href="/listings?category=Farms<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Farms') ? 'active' : '' %>">
+            <a href="/listings?category=Farms<%= searchParam %>" class="filter <%= isAct('Farms') ? 'active' : '' %>">
                 <i class="fa-solid fa-tractor"></i>
                 <p>Farms</p>
             </a>
-            <a href="/listings?category=Arctic<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Arctic') ? 'active' : '' %>">
+            <a href="/listings?category=Arctic<%= searchParam %>" class="filter <%= isAct('Arctic') ? 'active' : '' %>">
                 <i class="fa-regular fa-snowflake"></i>
                 <p>Arctic</p>
             </a>
-            <a href="/listings?category=Beach<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Beach') ? 'active' : '' %>">
+            <a href="/listings?category=Beach<%= searchParam %>" class="filter <%= isAct('Beach') ? 'active' : '' %>">
                 <i class="fa-solid fa-umbrella-beach"></i>
                 <p>Beach</p>
             </a>
-            <a href="/listings?category=Boats<%= searchQuery ? '&q=' + encodeURIComponent(searchQuery) : '' %>" class="filter <%= isAct('Boats') ? 'active' : '' %>">
+            <a href="/listings?category=Boats<%= searchParam %>" class="filter <%= isAct('Boats') ? 'active' : '' %>">
                 <i class="fa-solid fa-ship"></i>
                 <p>Boats</p>
             </a>
@@ -61,15 +67,15 @@
         </div>
     </div>
 
-    <% if (searchQuery || activeCategory) { %>
+    <% if (currentSearch || currentCategory) { %>
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="text-muted mb-0">
-                <% if (searchQuery && activeCategory) { %>
-                    Results for "<%= searchQuery %>" in <%= activeCategory %>
-                <% } else if (searchQuery) { %>
-                    Results for "<%= searchQuery %>"
-                <% } else if (activeCategory) { %>
-                    Category: <%= activeCategory %>
+                <% if (currentSearch && currentCategory) { %>
+                    Results for "<%= currentSearch %>" in <%= currentCategory %>
+                <% } else if (currentSearch) { %>
+                    Results for "<%= currentSearch %>"
+                <% } else if (currentCategory) { %>
+                    Category: <%= currentCategory %>
                 <% } %>
                 (<%= allListings.length %> found)
             </h5>
