@@ -11,6 +11,7 @@ const ExpressError = require("./utils/ExpressError.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const infoRouter = require("./routes/info.js");
 const sessions = require("express-session");
 const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
@@ -102,6 +103,9 @@ app.use("/listings", listingRouter);
 
 // Review routes
 app.use("/listings/:id/reviews", reviewRouter);
+
+// Static info pages
+app.use("/", infoRouter);
 
 
 // all routes

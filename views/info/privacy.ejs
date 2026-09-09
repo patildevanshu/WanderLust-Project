@@ -1,0 +1,54 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-4 mb-5">
+  <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+    <div class="card p-4 p-md-5 border-0 shadow-sm">
+      <h2 class="mb-3 text-center fw-bold">Privacy Policy</h2>
+      <p class="text-muted text-center small mb-4">Last Updated: <%= new Date().toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' }) %></p>
+
+      <hr class="my-4">
+
+      <h5 class="fw-semibold">1. Information We Collect</h5>
+      <p class="text-secondary">
+        We collect information you provide directly when creating an account, posting property listings, leaving reviews, or contacting support. This includes your username, email address, property descriptions, uploaded photographs, and location details.
+      </p>
+
+      <h5 class="fw-semibold mt-4">2. How We Use Your Information</h5>
+      <ul class="text-secondary">
+        <li class="mb-2">To provide, maintain, and enhance the WanderLust vacation rental platform.</li>
+        <li class="mb-2">To authenticate user identity and prevent unauthorized modifications to listings and reviews.</li>
+        <li class="mb-2">To geocode property addresses into geographic coordinates using Mapbox for map display.</li>
+        <li class="mb-2">To securely host property photographs via Cloudinary CDN storage.</li>
+      </ul>
+
+      <h5 class="fw-semibold mt-4">3. Cookies and Session Storage</h5>
+      <p class="text-secondary">
+        We utilize HTTP-only cookies and persistent session storage to keep you securely signed in and preserve your viewing preferences (such as tax display settings). These cookies do not store unencrypted sensitive personal details.
+      </p>
+
+      <h5 class="fw-semibold mt-4">4. Third-Party Services</h5>
+      <p class="text-secondary">
+        We collaborate with trusted service providers:
+      </p>
+      <ul class="text-secondary">
+        <li><strong>Mapbox:</strong> For map rendering and geocoding services.</li>
+        <li><strong>Cloudinary:</strong> For image optimization, transformation, and media storage.</li>
+        <li><strong>MongoDB Atlas:</strong> For encrypted database persistence.</li>
+      </ul>
+
+      <h5 class="fw-semibold mt-4">5. Contact Our Privacy Team</h5>
+      <p class="text-secondary">
+        If you have inquiries regarding your personal data, data removal requests, or this policy, reach out to our privacy officer:
+      </p>
+      <div class="alert alert-light border p-3 d-flex align-items-center mt-3">
+        <i class="fa-solid fa-shield-halved text-danger fs-3 me-3"></i>
+        <div>
+          <span class="d-block text-muted small">Privacy & Data Protection Officer</span>
+          <a href="mailto:support@devanshupatil.tech" class="fw-bold text-danger text-decoration-none">
+            support@devanshupatil.tech
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

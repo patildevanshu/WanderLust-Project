@@ -1,0 +1,48 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-4 mb-5">
+  <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+    <div class="card p-4 p-md-5 border-0 shadow-sm">
+      <h2 class="mb-3 text-center fw-bold">Terms & Conditions</h2>
+      <p class="text-muted text-center small mb-4">Effective Date: <%= new Date().toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' }) %></p>
+
+      <hr class="my-4">
+
+      <h5 class="fw-semibold">1. Acceptance of Terms</h5>
+      <p class="text-secondary">
+        By accessing or using WanderLust, you agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, you must discontinue using our services.
+      </p>
+
+      <h5 class="fw-semibold mt-4">2. User Accounts & Responsibilities</h5>
+      <ul class="text-secondary">
+        <li class="mb-2">You must provide accurate, current, and complete information during registration.</li>
+        <li class="mb-2">You are responsible for maintaining the confidentiality of your credentials and account activities.</li>
+        <li class="mb-2">Only authorized owners may modify or remove their listings. Any attempt to tamper with other users' properties or reviews will result in account termination.</li>
+      </ul>
+
+      <h5 class="fw-semibold mt-4">3. Listing and Content Standards</h5>
+      <p class="text-secondary">
+        Hosts represent that their listings accurately depict the property's condition, location, pricing, and amenities. Content containing fraudulent claims, hate speech, or infringing materials is strictly prohibited.
+      </p>
+
+      <h5 class="fw-semibold mt-4">4. Limitation of Liability</h5>
+      <p class="text-secondary">
+        WanderLust provides a connection platform between property hosts and travelers. To the fullest extent permitted by law, WanderLust shall not be liable for indirect, incidental, or consequential damages resulting from stays or interactions arranged through the site.
+      </p>
+
+      <h5 class="fw-semibold mt-4">5. Inquiries & Legal Notices</h5>
+      <p class="text-secondary">
+        For legal questions or formal disputes regarding these Terms, please contact our administrative team:
+      </p>
+      <div class="alert alert-light border p-3 d-flex align-items-center mt-3">
+        <i class="fa-solid fa-scale-balanced text-danger fs-3 me-3"></i>
+        <div>
+          <span class="d-block text-muted small">Legal & Support Department</span>
+          <a href="mailto:support@devanshupatil.tech" class="fw-bold text-danger text-decoration-none">
+            support@devanshupatil.tech
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
